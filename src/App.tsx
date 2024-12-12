@@ -1,12 +1,9 @@
-import { Button, Profile, Product } from '@/components';
+import CatalogPage from './pages/CatalogPage/CatalogPage';
 
 const App = () => {
-	const isLoggedIn = true;
 	return (
 		<>
-			{isLoggedIn && <Profile />}
-			<Button />
-			<Product/>
+			<CatalogPage />
 		</>
 	);
 };

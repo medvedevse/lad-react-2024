@@ -1,16 +1,11 @@
-.wrap {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	align-items: center;
-}
-
 .productCard {
 	display: flex;
 	flex-direction: column;
 	border: 1px solid blue;
 	border-radius: 15px;
 	padding: 10px;
+	margin-right: 10px;
+	width: 200px;
 }
 
 .productCardContent {
@@ -30,5 +25,5 @@
 
 .discount {
 	text-decoration: line-through;
-	color: rosybrown
+	color: rosybrown;
 }
