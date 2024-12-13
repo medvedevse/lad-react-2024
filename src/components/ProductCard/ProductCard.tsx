@@ -52,7 +52,7 @@ const ProductCard = (props: ProductProps) => {
 					</p>
 					<p>Рейтинг: {product.rating}</p>
 				</div>
-				<Button onClick={() => alert('Добавлено в корзину')}>Купить</Button>
+				<Button message={'Добавлено в корзину'}>Купить</Button>
 			</div>
 		</div>
 	);
