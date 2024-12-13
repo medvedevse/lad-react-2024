@@ -2,18 +2,15 @@ import classes from './Button.module.scss';
 
 type ButtonProps = {
 	children: React.ReactNode;
-	message?: string;
+	onClick?: () => void;
 };
 
 const Button = (props: ButtonProps) => {
-	const { children, message } = props;
-	const handleClick = () => {
-		alert(message);
-	};
+	const { children, onClick } = props;
 	return (
 		<button
 			className={classes.btn}
-			onClick={handleClick}
+			onClick={onClick}
 		>
 			{children}
 		</button>

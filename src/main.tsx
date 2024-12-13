@@ -9,7 +9,7 @@ createRoot(document.getElementById('root')!).render(
 	<StrictMode>
 		<Layout>
 			{isLoggedIn && <Profile user={user} />}
-			<Button message='Hello!'>Войти</Button>
+			<Button onClick={() => alert('Hello!')}>Войти</Button>
 		</Layout>
 		<App />
 	</StrictMode>

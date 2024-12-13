@@ -14,6 +14,10 @@ const ProductCard = (props: ProductProps) => {
 	product.isFavorite = state;
 	console.log(productType);
 
+	const addToCart = () => {
+		alert('Добавлено в корзину');
+	};
+
 	return (
 		<div className={classes.wrap}>
 			<div className={classes.productCard}>
@@ -52,7 +56,7 @@ const ProductCard = (props: ProductProps) => {
 					</p>
 					<p>Рейтинг: {product.rating}</p>
 				</div>
-				<Button message={'Добавлено в корзину'}>Купить</Button>
+				<Button onClick={addToCart}>Купить</Button>
 			</div>
 		</div>
 	);
