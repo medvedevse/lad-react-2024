@@ -11,11 +11,14 @@ export type ProductProps = {
 const ProductCard = (props: ProductProps) => {
 	const { product, productType = 'default' } = props;
 	const [state, setState] = useState(false);
+	const [count, setCount] = useState(0);
 	product.isFavorite = state;
 	console.log(productType);
-	const handleAddToCart = () => {
+	const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
 		alert('Добавлено в корзину');
+		e.stopPropagation();
 	};
+	
 
 	return (
 		<div className={classes.wrap}>
@@ -55,7 +58,22 @@ const ProductCard = (props: ProductProps) => {
 					</p>
 					<p>Рейтинг: {product.rating}</p>
 				</div>
-				<Button onClick={handleAddToCart}>Купить</Button>
+				<Button
+					onClick={
+						count > 0
+							? handleAddToCart
+							: () => alert('Выберите количество товаров')
+					}
+				>
+					Купить
+				</Button>
+				<div className={classes.wrap}>
+					<Button onClick={() => setCount(count => count + 1)}>+</Button>
+					<div className='div'>{count > 0 && count}</div>
+					<Button onClick={() => count > 0 && setCount(count => count - 1)}>
+						-
+					</Button>
+				</div>
 			</div>
 		</div>
 	);

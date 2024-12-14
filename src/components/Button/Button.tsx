@@ -2,7 +2,7 @@ import classes from './Button.module.scss';
 
 type ButtonProps = {
 	children: React.ReactNode;
-	onClick?: () => void;
+	onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Button = (props: ButtonProps) => {
