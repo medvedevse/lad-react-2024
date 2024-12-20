@@ -6,6 +6,8 @@
 	padding: 10px;
 	margin-right: 10px;
 	width: 200px;
+	min-height: 370px;
+	justify-content: flex-start;
 }
 
 .productCardContent {
@@ -14,7 +16,8 @@
 	align-items: center;
 	width: 200px;
 	p {
-		margin: 8px;
+		margin: 6px 0;
+		padding: 0;
 	}
 }
 
@@ -30,5 +33,9 @@
 
 .wrap {
 	display: flex;
-	justify-content:space-evenly
+	justify-content: space-evenly;
+}
+
+.count {
+	margin: 6px;
 }

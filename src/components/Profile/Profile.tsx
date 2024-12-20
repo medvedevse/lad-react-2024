@@ -10,15 +10,10 @@ const Profile = (props: UserProps) => {
 	return (
 		<>
 			<div className={classes.wrap}>
-				<img
-					src={user.image}
-					alt='Профиль пользователя'
-					width={50}
-					height={50}
-				/>
-				<p>
+				<img src={user.image} alt="Профиль пользователя" width={38} height={38} />
+				<div>
 					{user.name} {user.lastName[0].toUpperCase()}.
-				</p>
+				</div>
 			</div>
 		</>
 	);

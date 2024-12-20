@@ -8,6 +8,7 @@ export const products = [
 		discount: 90,
 		rating: 4.7,
 		isFavorite: true,
+		count: 0,
 	},
 	{
 		id: 2,
@@ -18,6 +19,7 @@ export const products = [
 		discount: 70,
 		rating: 4.9,
 		isFavorite: true,
+		count: 0,
 	},
 	{
 		id: 3,
@@ -28,5 +30,6 @@ export const products = [
 		discount: 80,
 		rating: 4.5,
 		isFavorite: true,
+		count: 0,
 	},
 ];

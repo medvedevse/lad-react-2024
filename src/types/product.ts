@@ -6,4 +6,5 @@ export type Product = {
 	discount?: number;
 	rating: number;
 	isFavorite: boolean;
+	count?: number;
 };

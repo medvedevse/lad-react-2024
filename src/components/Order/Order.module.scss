@@ -1,0 +1,31 @@
+.order {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	transition: background-color 1s;
+	border-bottom: 1px dashed #ccc;
+	padding: 20px 26px;
+}
+
+.orderTitle {
+	width: 100%;
+	padding: 0 30px;
+}
+
+.orderActions button {
+	cursor: pointer;
+}
+
+.orderPrice {
+	margin-right: 24px;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-self: center;
+	gap: 30px;
+}
+
+.orderCount {
+	display: flex;
+	justify-content: flex-end;
+}
