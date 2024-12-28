@@ -15,11 +15,6 @@ export const clearCart = (): CartActionsTypes => ({
 	type: CartActions.CLEAR_CART,
 });
 
-export const changeCard = (product: Product): CartActionsTypes => ({
-	type: CartActions.CHANGE_CARD,
-	payload: product,
-});
-
 export const deleteOrder = (order: Product): CartActionsTypes => ({
 	type: CartActions.DELETE_ORDER,
 	payload: order,

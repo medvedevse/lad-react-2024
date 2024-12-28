@@ -4,7 +4,6 @@ export enum CartActions {
 	ADD_ITEM = 'ADD_ITEM',
 	REMOVE_ITEM = 'REMOVE_ITEM',
 	CLEAR_CART = 'CLEAR_CART',
-	CHANGE_CARD = 'CHANGE_CARD',
 	DELETE_ORDER = 'DELETE_ORDER',
 	CHOOSE_FAVORITE = 'CHOOSE_FAVORITE',
 }
@@ -21,10 +20,6 @@ export type CartActionsTypes =
 	| {
 			type: CartActions.CLEAR_CART;
 			payload?: Product;
-	  }
-	| {
-			type: CartActions.CHANGE_CARD;
-			payload: Product;
 	  }
 	| {
 			type: CartActions.DELETE_ORDER;
