@@ -7,18 +7,18 @@ export type CatalogPageProps = {};
 
 const CatalogPage = (props: CatalogPageProps) => {
 	const [active, setActive] = useState<boolean>(false);
-	const { product } = useCartContext();
+	const { products } = useCartContext();
 
 	return (
 		<>
 			<Layout setActive={setActive}>
 				<h1>Каталог</h1>
 				<section>
-					<ProductCatalog products={product} />
+					<ProductCatalog products={products} />
 				</section>
 			</Layout>
 			<ModalLayout modalTitle="Корзина" active={active} setActive={setActive}>
-				<Cart orders={product} />
+				<Cart orders={products} />
 			</ModalLayout>
 		</>
 	);

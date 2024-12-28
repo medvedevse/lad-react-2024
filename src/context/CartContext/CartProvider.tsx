@@ -9,8 +9,8 @@ type CartProviderProps = {
 };
 
 const CartProvider = ({ children }: CartProviderProps) => {
-	const [product, dispatch] = useImmerReducer(cartReducer, initialState);
-	return <CartContext.Provider value={{ dispatch, product }}>{children}</CartContext.Provider>;
+	const [products, dispatch] = useImmerReducer(cartReducer, initialState);
+	return <CartContext.Provider value={{ dispatch, products }}>{children}</CartContext.Provider>;
 };
 
 export default CartProvider;
