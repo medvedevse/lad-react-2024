@@ -4,14 +4,13 @@ import { Product } from '@/types/product';
 
 export type ProductCatalogProps = {
 	products: Array<Product>;
-	onChangeCard: (product: Product) => void;
 };
 
 const ProductCatalog = (props: ProductCatalogProps) => {
 	return (
 		<div className={classes.wrap}>
 			{props.products.map((product) => (
-				<ProductCard key={product.id} product={product} onChangeCard={props.onChangeCard} />
+				<ProductCard key={product.id} product={product} />
 			))}
 		</div>
 	);

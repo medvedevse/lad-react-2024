@@ -2,44 +2,16 @@ import classes from './Product.module.scss';
 import { Product } from '@/types/product';
 import Button from '../Button/Button';
 import CounterComponent from './components/CounterComponent';
+import { useCartContext } from '@/hooks/useCartContext';
+import { addItem, chooseFavorite, removeItem } from '@/context/CartContext/CartActions';
 
 export type ProductProps = {
 	product: Product;
 	productType?: 'default' | 'sale';
-	onChangeCard: (product: Product) => void;
 };
 
 const ProductCard = (props: ProductProps) => {
-	const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
-		alert('Добавлено в корзину');
-		props.onChangeCard({
-			...props.product,
-			count: props.product.count ? props.product.count + 1 : 1,
-		});
-		e.stopPropagation();
-	};
-
-	const handleDecrement = () => {
-		props.onChangeCard({
-			...props.product,
-			count: props.product.count && props.product.count > 0 ? props.product.count - 1 : 0,
-		});
-	};
-
-	const handleIncrement = () => {
-		props.onChangeCard({
-			...props.product,
-			count: props.product.count ? props.product.count + 1 : 1,
-		});
-	};
-
-	const handleFavorite = () => {
-		props.onChangeCard({
-			...props.product,
-			isFavorite: !props.product.isFavorite,
-		});
-	};
-
+	const { dispatch } = useCartContext();
 	return (
 		<div className={classes.wrap}>
 			<div className={classes.productCard}>
@@ -47,7 +19,7 @@ const ProductCard = (props: ProductProps) => {
 					href="#"
 					onClick={(e) => {
 						e.preventDefault();
-						handleFavorite();
+						dispatch(chooseFavorite(props.product));
 					}}
 				>
 					<img
@@ -73,12 +45,19 @@ const ProductCard = (props: ProductProps) => {
 					</p>
 					<p>Рейтинг: {props.product.rating}</p>
 				</div>
-				<Button onClick={handleAddToCart}>Купить</Button>
+				<Button
+					onClick={() => {
+						alert('Добавлено в корзину');
+						dispatch(addItem(props.product));
+					}}
+				>
+					Купить
+				</Button>
 				{props.product.count != undefined && props.product.count > 0 && (
 					<CounterComponent
 						count={props.product.count}
-						onAdd={handleIncrement}
-						onRemove={handleDecrement}
+						onAdd={() => dispatch(addItem(props.product))}
+						onRemove={() => dispatch(removeItem(props.product))}
 					/>
 				)}
 			</div>

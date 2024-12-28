@@ -1,7 +1,6 @@
-.productCard {
+@mixin productCard() {
 	display: flex;
 	flex-direction: column;
-	border: 1px solid blue;
 	border-radius: 15px;
 	padding: 10px;
 	margin-right: 10px;
@@ -26,9 +25,8 @@
 	font-weight: bold;
 }
 
-.discount {
+@mixin discount() {
 	text-decoration: line-through;
-	color: rosybrown;
 }
 
 .wrap {
@@ -38,4 +36,28 @@
 
 .count {
 	margin: 6px;
+}
+
+:global(.theme__light) {
+	.productCard {
+		@include productCard;
+		border: 1px solid blue;
+	}
+
+	.discount {
+		@include discount;
+		color: rosybrown;
+	}
+}
+
+:global(.theme__dark) {
+	.productCard {
+		@include productCard;
+		border: 1px solid white;
+	}
+
+	.discount {
+		@include discount;
+		color: wheat;
+	}
 }

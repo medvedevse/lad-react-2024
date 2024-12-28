@@ -1,21 +1,16 @@
 import classes from './Order.module.scss';
 import { Product } from '@/types/product';
 import Button from '../Button/Button';
+import { useCartContext } from '@/hooks/useCartContext';
+import { deleteOrder } from '@/context/CartContext/CartActions';
 
 export type OrderProps = {
 	productType?: 'default' | 'sale';
 	order: Product;
-	onDelete: () => void;
-	onChangeCard: (order: Product) => void;
 };
 
 const Order = (props: OrderProps) => {
-	const handleDeleteOrder = () => {
-		props.onChangeCard({
-			...props.order,
-			count: props.order.count && props.order.count > 0 ? (props.order.count = 0) : 0,
-		});
-	};
+	const { dispatch } = useCartContext();
 
 	return (
 		<>
@@ -24,11 +19,15 @@ const Order = (props: OrderProps) => {
 					<div className={classes.orderCode}>{props.order.id}</div>
 					<div className={classes.orderTitle}>{props.order.name}</div>{' '}
 					<div className={classes.orderPrice}>
-						<span>{props.order.price + '₽'}</span>
+						<span>
+							{props.order.isFavorite && props.order.discount
+								? (props.order.price * props.order.discount) / 100
+								: props.order.price + '₽'}
+						</span>
 						<span className={classes.orderCount}>{props.order.count + ' шт'}</span>{' '}
 					</div>
 					<div className={classes.orderActions}>
-						<Button onClick={handleDeleteOrder}>Удалить</Button>
+						<Button onClick={() => dispatch(deleteOrder(props.order))}>Удалить</Button>
 					</div>
 				</div>
 			)}

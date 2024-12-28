@@ -5,3 +5,4 @@ export { default as ProductCatalog } from './ProductCatalog/ProductCatalog';
 export { default as Layout } from '../layouts/Layout/Layout';
 export { default as Cart } from './Cart/Cart';
 export { default as Order } from './Order/Order';
+export { default as ThemeChanger } from './ThemeChanger/ThemeChanger';

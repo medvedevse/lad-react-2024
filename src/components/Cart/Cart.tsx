@@ -1,18 +1,25 @@
 import classes from './Cart.module.scss';
 import { Button, Order } from '@/components';
+import { clearCart } from '@/context/CartContext/CartActions';
+import { useCartContext } from '@/hooks/useCartContext';
 import { Product } from '@/types/product';
 
 type CartProps = {
 	orders: Array<Product>;
-	onChangeCard: (order: Product) => void;
-	onClear: () => void;
 };
 
 const Cart = (props: CartProps) => {
+	const { dispatch } = useCartContext();
 	const handleGetFullPrice = () => {
 		let sum: number = 0;
 		props.orders.map((item) => {
-			if (item.count && item.count > 0) sum += item.price * item.count;
+			if (item.count && item.count > 0) {
+				if (item.isFavorite && item.discount) {
+					sum += ((item.price * item.discount) / 100) * item.count;
+				} else {
+					sum += item.price * item.count;
+				}
+			}
 		});
 		return sum;
 	};
@@ -21,7 +28,7 @@ const Cart = (props: CartProps) => {
 			<div className={classes.cartList}>
 				{props.orders.map((order) => (
 					<div key={order.id} className={classes.cartListItem}>
-						<Order order={order} onDelete={props.onClear} onChangeCard={props.onChangeCard} />
+						<Order order={order} />
 					</div>
 				))}
 			</div>
@@ -32,7 +39,7 @@ const Cart = (props: CartProps) => {
 				</span>
 				<div className={classes.cartClearButton}>
 					{props.orders.find((order) => order.count && order.count > 0) && (
-						<Button onClick={props.onClear}>Очистить</Button>
+						<Button onClick={() => dispatch(clearCart())}>Очистить</Button>
 					)}
 				</div>
 			</div>

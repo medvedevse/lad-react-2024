@@ -1,10 +1,15 @@
+$light: 'light';
+$dark: 'dark';
+$color-white-100: white;
+$color-black-100: black;
+
 body {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
 }
 
-.pageLayout {
+@mixin pageLayout() {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -13,6 +18,22 @@ body {
 	margin: 0 auto;
 	background: #fff;
 	box-sizing: border-box;
+}
+
+:global(.theme__#{$light}) {
+	.pageLayout {
+		@include pageLayout;
+		background: $color-white-100;
+		color: $color-black-100;
+	}
+}
+
+:global(.theme__#{$dark}) {
+	.pageLayout {
+		@include pageLayout;
+		background: darkcyan;
+		color: whitesmoke;
+	}
 }
 
 .pageLayoutHeader {
