@@ -3,7 +3,7 @@ import { Product } from '@/types/product';
 import Button from '../Button/Button';
 import CounterComponent from './components/CounterComponent';
 import { useCartContext } from '@/hooks/useCartContext';
-import { addItem, chooseFavorite, removeItem } from '@/context/CartContext/CartActions';
+import { addItem, chooseFavorite, removeItem } from '@/context/CartContext/cartActions';
 
 export type ProductProps = {
 	product: Product;

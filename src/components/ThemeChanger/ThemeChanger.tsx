@@ -11,8 +11,6 @@ const ThemeChanger = () => {
 		setTheme(e.target.value as ThemeType);
 	};
 
-	console.log(savedTheme);
-
 	return (
 		<form className={classes.themeChanger}>
 			<SwitchComponent id={'switch'} value={savedTheme} onChange={handleChangeTheme} />

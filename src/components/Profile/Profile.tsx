@@ -6,16 +6,10 @@ export type UserProps = {
 };
 
 const Profile = (props: UserProps) => {
-	const { user } = props;
 	return (
-		<>
-			<div className={classes.wrap}>
-				<img src={user.image} alt="Профиль пользователя" width={38} height={38} />
-				<div>
-					{user.name} {user.lastName[0].toUpperCase()}.
-				</div>
-			</div>
-		</>
+		<div className={classes.wrap}>
+			<p>{props.user && props.user.firstName + ' ' + props.user.lastName[0].toUpperCase()}.</p>
+		</div>
 	);
 };
 

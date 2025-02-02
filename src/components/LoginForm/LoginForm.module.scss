@@ -1,0 +1,37 @@
+@mixin loginForm() {
+	border-radius: 10px;
+	padding: 80px 100px;
+}
+
+.wrapper {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+:global(.theme__light) {
+	.autorizeForm {
+		@include loginForm;
+		border: 1px solid blue;
+	}
+}
+
+:global(.theme__dark) {
+	.autorizeForm {
+		@include loginForm;
+		border: 1px solid white;
+	}
+}
+
+.header {
+	text-align: center;
+}
+
+.formWrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 150px;
+	width: 200px;
+}
